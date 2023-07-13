@@ -21,14 +21,16 @@ using Unity.Profiling;
 using PluginAPI.Core;
 using MEC;
 using RoundRestarting;
+using PluginAPI.Enums;
 
 namespace RoleSpawnFix
 {
     public class Plugin
     {
         public static Harmony Harmony { get; private set; }
+
         [PluginEntryPoint("RoleSpawnFix", "1.0.0", "Another NW moment fixed", "Steven4547466")]
-        void LoadPlugin()
+        public void LoadPlugin()
         {
             Log.Info("--------LOADED--------");
 

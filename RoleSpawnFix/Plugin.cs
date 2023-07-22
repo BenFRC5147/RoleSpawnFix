@@ -29,7 +29,7 @@ namespace RoleSpawnFix
     {
         public static Harmony Harmony { get; private set; }
 
-        [PluginEntryPoint("RoleSpawnFix", "1.0.0", "Another NW moment fixed", "Steven4547466")]
+        [PluginEntryPoint("RoleSpawnFix", "1.2.0", "Another NW moment fixed", "Steven4547466")]
         public void LoadPlugin()
         {
             Log.Info("--------LOADED--------");
@@ -45,7 +45,7 @@ namespace RoleSpawnFix
                 float currentHorizontal;
                 if (!newRole.RoleTypeId.GetRandomSpawnPoint(out position, out currentHorizontal))
                 {
-                    if (newRole.RoleTypeId != RoleTypeId.Spectator && newRole.RoleTypeId != RoleTypeId.None && newRole.RoleTypeId != RoleTypeId.Scp0492)
+                    if (newRole.RoleTypeId != RoleTypeId.Spectator && newRole.RoleTypeId != RoleTypeId.None && newRole.RoleTypeId != RoleTypeId.Scp0492 && newRole.RoleTypeId != RoleTypeId.Scp079 && newRole.RoleTypeId != RoleTypeId.Overwatch)
                         Log.Error($"Unable to get random spawn point for role: {newRole.RoleTypeId}. GetRandomSpawnPoint() returned false.");
                     return;
                 }
@@ -91,7 +91,7 @@ namespace RoleSpawnFix
 
             if (!(roleBase is IFpcRole fpc))
             {
-                if (roleType != RoleTypeId.Spectator && roleType != RoleTypeId.None)
+                if (roleType != RoleTypeId.Spectator && roleType != RoleTypeId.None && roleType != RoleTypeId.Overwatch && roleType != RoleTypeId.Scp079)
                     Log.Error("RoleBase is not IFpcRole");
                 return false;
             }
